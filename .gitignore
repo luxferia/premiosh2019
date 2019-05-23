@@ -1,7 +1,9 @@
 # Created by https://www.gitignore.io/api/sass,sublimetext
 # Edit at https://www.gitignore.io/?templates=sass,sublimetext
 
-.psd
+*.psd
+images/webdoor/_img-webdoor02.jpg
+images/webdoor/_img-webdoor04.jpg
 
 ### Sass ###
 .sass-cache/
