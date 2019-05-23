@@ -1,0 +1,647 @@
+/* ==========================================================================
+   MODIFICACOES DO FRAMEWORK
+   ========================================================================== */
+
+@include set-gutters(margin, $space-xxs !important, 1);
+@include set-gutters(margin, $space-xs !important, 2);
+@include set-gutters(margin, $space-xs + $space-xxs !important, 3);
+@include set-gutters(margin, $space-sm !important, 4);
+@include set-gutters(margin, $space-md !important, 5);
+@include set-gutters(margin, 0 !important, 0);
+
+@include set-gutters(padding, $space-xxs !important, 1);
+@include set-gutters(padding, $space-xs !important, 2);
+@include set-gutters(padding, $space-xs + $space-xxs !important, 3);
+@include set-gutters(padding, $space-sm !important, 4);
+@include set-gutters(padding, $space-md !important, 5);
+@include set-gutters(padding, 0 !important, 0);
+
+
+@media (min-width: $screen-sm-min) {
+    @include set-gutters(margin, $space-xxs !important, 1, sm);
+    @include set-gutters(margin, $space-xs !important, 2, sm);
+    @include set-gutters(margin, $space-xs + $space-xxs !important, 3, sm);
+    @include set-gutters(margin, $space-sm !important, 4, sm);
+    @include set-gutters(margin, $space-md !important, 5, sm);
+    @include set-gutters(margin, 0 !important, 0, sm);
+
+    @include set-gutters(padding, $space-xxs !important, 1, sm);
+    @include set-gutters(padding, $space-xs !important, 2, sm);
+    @include set-gutters(padding, $space-xs + $space-xxs !important, 3, sm);
+    @include set-gutters(padding, $space-sm !important, 4, sm);
+    @include set-gutters(padding, $space-md !important, 5, sm);
+    @include set-gutters(padding, 0 !important, 0, sm);
+}
+@media (min-width: $screen-md-min) {
+    @include set-gutters(margin, $space-xxs !important, 1, md);
+    @include set-gutters(margin, $space-xs !important, 2, md);
+    @include set-gutters(margin, $space-xs + $space-xxs !important, 3, md);
+    @include set-gutters(margin, $space-sm !important, 4, md);
+    @include set-gutters(margin, $space-md !important, 5, md);
+    @include set-gutters(margin, 0 !important, 0, md);
+
+    @include set-gutters(padding, $space-xxs !important, 1, md);
+    @include set-gutters(padding, $space-xs !important, 2, md);
+    @include set-gutters(padding, $space-xs + $space-xxs !important, 3, md);
+    @include set-gutters(padding, $space-sm !important, 4, md);
+    @include set-gutters(padding, $space-md !important, 5, md);
+    @include set-gutters(padding, 0 !important, 0, md);
+}
+@media (min-width: $screen-lg-min) {
+    @include set-gutters(margin, $space-xxs !important, 1, lg);
+    @include set-gutters(margin, $space-xs !important, 2, lg);
+    @include set-gutters(margin, $space-xs + $space-xxs !important, 3, lg);
+    @include set-gutters(margin, $space-sm !important, 4, lg);
+    @include set-gutters(margin, $space-md !important, 5, lg);
+    @include set-gutters(margin, 0 !important, 0, lg);
+
+    @include set-gutters(padding, $space-xxs !important, 1, lg);
+    @include set-gutters(padding, $space-xs !important, 2, lg);
+    @include set-gutters(padding, $space-xs + $space-xxs !important, 3, lg);
+    @include set-gutters(padding, $space-sm !important, 4, lg);
+    @include set-gutters(padding, $space-md !important, 5, lg);
+    @include set-gutters(padding, 0 !important, 0, lg);
+}
+@media (min-width: $screen-xl-min) {
+    @include set-gutters(margin, $space-xxs !important, 1, xl);
+    @include set-gutters(margin, $space-xs !important, 2, xl);
+    @include set-gutters(margin, $space-xs + $space-xxs !important, 3, xl);
+    @include set-gutters(margin, $space-sm !important, 4, xl);
+    @include set-gutters(margin, $space-md !important, 5, xl);
+    @include set-gutters(margin, 0 !important, 0, xl);
+
+    @include set-gutters(padding, $space-xxs !important, 1, xl);
+    @include set-gutters(padding, $space-xs !important, 2, xl);
+    @include set-gutters(padding, $space-xs + $space-xxs !important, 3, xl);
+    @include set-gutters(padding, $space-sm !important, 4, xl);
+    @include set-gutters(padding, $space-md !important, 5, xl);
+    @include set-gutters(padding, 0 !important, 0, xl);
+}
+
+.container {
+    @media (min-width: $screen-xl-min) {
+        max-width: 1180px;
+    }
+}
+
+.col, .col-sm, .col-md, .col-lg, .col-xl { min-width: 1px; }
+
+
+/* TYPOGRAPHY
+ * -------------------------- */
+
+
+$max: 4;
+@for $i from 1 through $max {
+    .display-#{$i} {
+        font-size: modular-scale(($max + 3));
+        $max: $max - 1;
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    $max: 4;
+    @for $i from 1 through $max {
+        .display-#{$i} {
+            font-size: modular-scale(($max + 4));
+            $max: $max - 1;
+        }
+    }
+}
+
+// @media (min-width: $screen-lg-min) {
+//     $max: 4;
+//     @for $i from 1 through $max {
+//         .display-#{$i} {
+//             font-size: modular-scale(($max + 6));
+//             $max: $max - 1;
+//         }
+//     }
+// }
+
+[class*="display-"] {
+    text-transform: lowercase;
+    font-weight: $font-light;
+    line-height: 1;
+    font-style: italic;
+}
+
+
+/* ALERT
+ * -------------------------- */
+
+.alert {
+    @include padding(null null null $space-xs);
+
+    &-dismissible {
+        @include padding(null 3.5rem null null);
+    }
+
+    // &-danger, &-success {
+    //     border: 1px solid $color-danger-lt;
+    //     // background-color: $color-danger-ltr;
+    //     color: scale-color($color-danger, $lightness: -60%);
+    // }
+}
+
+
+
+/* BUTTON
+ * -------------------------- */
+
+.btn {
+    cursor: pointer;
+    transition: all .3s;
+    font-weight: $font-bold;
+    border-radius: 0;
+    @include padding(.778rem $space-sm);
+
+    &:not(.btn-link) {
+        text-transform: uppercase;
+    }
+
+    &-sm {
+        @include padding(.518rem $space-xs);
+    }
+
+    &-link {
+        text-transform: none;
+        color: $color-danger-md;
+        @include padding(.584rem null);
+
+        #{$_link-hover} {
+            color: $color-danger-lt;
+        }
+    }
+}
+
+.btn-primary {
+    @include btn-style-full($color-primary-md, white, $bg-color-hover: 'dk');
+}
+.btn-danger {
+    @include btn-style-full($color-danger-md, white, $bg-color-hover: 'dk');
+}
+.btn-warning {
+    @include btn-style-full($color-warning-md, white, $bg-color-hover: 'dk');
+}
+.btn-success {
+    @include btn-style-full($color-success-dk, white, $bg-color-hover: 'dk');
+
+    &.disabled, &:disabled {
+        @include btn-style($color-success-dk, white);
+    }
+}
+.btn-info {
+    @include btn-style-full($color-info-dk, white, $bg-color-hover: 'dk');
+}
+.btn-dark {
+    @include btn-style-full(black, white, $bg-color-hover: 'lt');
+}
+
+
+/* FORM
+ * -------------------------- */
+
+$field-bdrs: .3rem;
+$field-bdw: 1px;
+$field-h: 2.945rem;
+
+.form-control,
+.custom-file-label {
+    border-radius: $field-bdrs;
+}
+
+// .form-control,
+// .custom-file, .custom-file-label, .custom-file-input {
+//     $field-bdw: $field-bdw * 2;
+//     height: calc(#{$field-h} + #{$field-bdw});
+// }
+
+
+// .form-control,
+// .custom-file-label, .custom-file-label:after {
+//     @include padding(($space-base * .75) ($space-base * 1));
+// }
+
+.form-group {
+    > label,
+    .form-item > label {
+        font-style: italic;
+        font-size: $font-size-big-perc;
+        font-weight: $font-regular;
+    }
+}
+
+.form-item, .form-actions {
+    @include margin(0 null);
+}
+
+.form-text:not(.form-control) {
+    line-height: $line-height-heading;
+}
+
+.custom-control {
+    // @include padding(null null null 2rem);
+
+    // &-label {
+    //     &:before, &:after {
+    //         @include size($space-base * 1.25);
+    //         @include position(null, .1rem null null -2rem);
+    //     }
+
+    //     &:before {
+    //         background-color: transparent;
+    //         border: $field-bdw solid white;
+    //     }
+    // }
+
+    &-input:checked~.custom-control-label::before {
+        border-color: $color-primary-md;
+        background-color: $color-primary-md;
+    }
+}
+
+label.custom-control-label {
+    // background-color: transparent;
+    color: white;
+    text-transform: none;
+    font-weight: $font-regular;
+    font-size: $font-size-base;
+    @include padding(null 0);
+    @include margin(null null null 0);
+
+    // a {
+    //     font-weight: $font-bold;
+    //     text-decoration: underline;
+    //     color: $color-danger-md;
+
+    //     #{$_link-hover} {
+    //         color: white;
+    //     }
+    // }
+}
+
+.custom-file-label:after,
+.input-group-text {
+    color: white;
+    background-color: black;
+    font-weight: $font-bold;
+}
+
+.custom-file {
+    display: block;
+
+    &-label {
+        @include margin(null null 0);
+
+        &:after {
+            height: $field-h;
+            border-radius: 0 $field-bdrs $field-bdrs 0;
+        }
+    }
+}
+
+// .input-group-text {
+//     border: $field-bdw solid white;
+//     border-radius: $field-bdrs;
+//     @include padding(null ($space-base * 1));
+// }
+
+// .input-group-prepend {
+//     @include margin(null ($field-bdw * -1) null null);
+// }
+
+// .input-group>.custom-file .custom-file-input:focus~.custom-file-label,
+// .input-group>.custom-select:focus,
+// .input-group>.form-control:focus {
+//     z-index: 0;
+// }
+
+@media (min-width: $screen-md-min) {
+    // .form-control,
+    // .custom-file, .custom-file-label, .custom-file-input {
+    //     $field-bdw: $field-bdw * 2;
+    //     height: calc(#{$field-h} + #{$field-bdw});
+    // }
+
+    // .form-control,
+    // .custom-file-label, .custom-file-label:after,
+    // .input-group-text {
+    //     @include padding(null ($space-base * 1.25));
+    // }
+
+    .form-group {
+        @include margin(null null $space-sm);
+    }
+
+    // .custom-file-label:after {
+    //     height: $field-h;
+    // }
+}
+
+
+/* DROPDOWN
+ * -------------------------- */
+
+.dropdown-menu {
+    color: white;
+    background-color: $color-danger;
+    border-color: transparent;
+}
+
+.dropdown-item {
+    @extend %no-text-underline;
+    color: white;
+    font-size: $font-size-small;
+
+    @include padding(null $space-xs);
+    
+    #{$_link-hover} {
+        color: white;
+        background-color: rgba(black, .05);
+    }
+}
+
+.dropdown-divider {
+    border-top: 1px solid rgba(white, .15);
+}
+
+
+/* MODAL
+ * -------------------------- */
+
+.modal {
+    &-content {
+        border-color: transparent;
+        background-color: black;
+        border-radius: 1;
+    }
+    &-header {
+        border-bottom: 0;
+        @include prefixer(flex-wrap, wrap, 'ms');
+        @include padding($space-sm null null);
+
+        .close {
+            float: none;
+            font-size: 2rem;
+            opacity: 1;
+            line-height: .5;
+            color: white;
+        }
+    }
+
+
+    &-title {
+        @include margin(null null 0);
+    }
+
+    &-backdrop.show {
+        opacity: .8;
+    }
+
+    @media (min-width: $screen-md-min) {
+        &-header {
+            @include padding($space-sm $space-sm $space-xxs);
+        }
+        &-body {
+            @include padding($space-xxs $space-sm $space-sm);
+        }
+
+    }
+}
+
+
+/* UTILITIES
+ * -------------------------- */
+
+$theme-colors: (
+    'primary':      $color-primary-md,
+    // 'secondary':    $color-secondary,
+    'danger':       $color-danger-md,
+    'warning':      $color-warning-md,
+    'success':      $color-success-md,
+    'info':         $color-info-md,
+    'muted':        $color-secondary-md,
+    'body':         black,
+);
+
+@each $name, $color in $theme-colors {
+    .bg-#{$name} {
+        background-color: $color !important;
+
+        @if $name != 'body' and  $name != 'muted' {
+            a:not(.btn) {
+                @extend %link-dark;
+            }
+        }
+    }
+}
+
+@each $name, $color in $theme-colors {
+    $perc: 15%;
+
+    .text-#{$name} {
+        color: $color !important;
+    }
+
+    a.text-#{$name} {
+        #{$_link-hover} {
+            color: lighten($color, $perc);
+        }
+    }
+}
+
+$brands-colors: (
+    'facebook':     $color-fb,
+    'twitter':      $color-tw,
+    'instagram':    $color-ig,
+    'youtube':      $color-yt,
+);
+
+@each $name, $color in $brands-colors {
+    $perc: 15%;
+
+    .text-#{$name},
+    .social .nav-link.text-#{$name} {
+        color: $color;
+        #{$_link-hover} {
+            color: lighten($color, $perc);
+        }
+    }
+
+    .social .nav-link.text-#{$name} {
+        border-color: $color;
+        #{$_link-hover} {
+            border-color: lighten($color, $perc);
+        }
+    }
+}
+
+
+
+/* ==========================================================================
+   MODIFICACOES DE PLUGINS
+   ========================================================================== */
+
+
+/* ==========================================================================
+   UTILITIES PROPRIOS
+   ========================================================================== */
+
+.marker, .form-required {
+    color: $color-danger-md;
+}
+
+.form-item {
+    input, textarea, select {
+        &.error {
+            border-color: $color-danger-md;
+        }
+    }
+}
+
+div {
+    .messages {
+        ul {
+            @include margin(0);
+        }
+    }
+}
+
+.messages {
+    ul {       
+        li {
+            list-style: none;
+            @include padding(null null null $space-xs);
+            @include position(relative, null);
+            
+            &:before {
+                opacity: .4;
+                content: '';
+                @include triangle('right', .3rem, .4rem, white);
+                @include margin(auto);
+                @include position(absolute, ($line-height-base * .5rem - .2rem) null null 0);
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-xl-min) {
+    .col-xl-3-5 {
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+
+.form-wrapper {
+    background-color: rgba(white, .15);
+}
+
+.bg-interna {
+    $bg-top: url('../images/bg-header-interna.jpg');
+    $bg-bottom: url('../images/bg-footer-interna.jpg');
+
+    background: {
+        image: $bg-top, $bg-bottom;
+        position-y: -60px, 105%;
+    }
+
+    &, &-top, &-bottom {
+        background: {
+            position-x: center;
+            repeat: no-repeat
+        }
+    }
+    &-top {
+        background: {
+            image: url('../images/bg-header-interna.jpg');
+            position-y: top;
+        }
+    }
+    &-bottom {
+        background: {
+            image: url('../images/bg-footer-interna.jpg');
+            position-y: bottom;
+        }
+    }
+
+    @media (min-width: 1921px) {
+        &, &-top, &-bottom {
+            background: {
+                size: cover;
+            }
+        }
+    }
+}
+
+.bg-circles {
+    $bg-circle-w: 33.75rem;
+    $bg-circles-pos-indent: -12rem;
+
+    $bg-circles-pos-left: left $bg-circles-pos-indent;
+    $bg-circles-pos-right: right $bg-circles-pos-indent;
+
+    $bg-circles-pos: (
+        $bg-circles-pos-left top,
+        $bg-circles-pos-right top $bg-circle-w,
+        $bg-circles-pos-left top $bg-circle-w * 2,
+        $bg-circles-pos-right top $bg-circle-w * 3,
+        $bg-circles-pos-left top $bg-circle-w * 4,
+        );
+    
+    $bg-circles-url: (
+        url('../images/circles-olfato.png'),
+        url('../images/circles-tato.png'),
+        url('../images/circles-audicao.png'),
+        url('../images/circles-paladar.png'),
+        url('../images/circles-visao.png'),
+        );
+
+    background: {
+        image: $bg-circles-url;
+        position: $bg-circles-pos;
+        size: auto $bg-circle-w;
+        repeat: no-repeat;
+    }
+    @include position(relative, null);
+
+    &:before {
+        background-color: rgba(black, .65);
+        @include before-after02();
+    }
+}
+
+/* ANIMACOES */
+
+.effect-move-hor {
+    @include prefixer(animation, ef_move_hor 5s ease-in-out infinite alternate both, 'webkit');
+}
+
+.effect-move-ver {
+    @include prefixer(animation, ef_move_ver 7s cubic-bezier(0.470, 0.000, 0.745, 0.715)  infinite alternate both, 'webkit');
+}
+
+$ef-flicker: '.effect-flicker';
+
+#{$ef-flicker}:not([class*="col"]),
+.category-list #{$ef-flicker}:focus .i-category-wrapper:before,
+.category-list #{$ef-flicker}:hover .i-category-wrapper:before {
+    @include prefixer(animation, ef_flicker 2s steps(5, start) infinite alternate-reverse, 'webkit');
+}
+
+$ef-beat: '.effect-beat';
+
+#{$ef-beat}:not([class*="col"]),
+.category-list #{$ef-beat}:focus .i-category-wrapper:before,
+.category-list #{$ef-beat}:hover .i-category-wrapper:before {
+    @include prefixer(animation, ef_beat 1.5s ease-in-out infinite both, 'webkit');
+}
+
+$ef-blur: '.effect-blur';
+
+#{$ef-blur}:not([class*="col"]),
+.category-list #{$ef-blur}:focus .i-category-wrapper:before,
+.category-list #{$ef-blur}:hover .i-category-wrapper:before {
+    @include prefixer(animation, ef_blur 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) infinite alternate both, 'webkit');
+}

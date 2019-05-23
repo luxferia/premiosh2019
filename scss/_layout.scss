@@ -1,0 +1,453 @@
+/* ==========================================================================
+   ESTRUTURA DO LAYOUT
+   ========================================================================== */
+
+/* HEADER
+ * -------------------------- */
+
+.main-navbar {
+    border-bottom: 1px solid $color-secondary-dk;
+
+    > .container {
+        @include position(relative, null);
+    }
+
+    $brand-w: 8rem;
+    .navbar-brand {
+        @include margin(null null null ($brand-w / 5));
+
+        > img {
+            width: $brand-w;
+        }
+        
+        .navbar-text {
+            width: auto;
+            font-size: $font-size-small;
+            font-style: italic;
+            line-height: 1;
+            text-transform: lowercase;
+            display: block;
+            @include margin(null null null ($brand-w / 2.5));
+            @include padding(null null 0);
+        }
+
+        #{$_link-hover} {
+            color: $color-danger-lt;
+        }
+    }
+
+    .nav-link {
+        color: $color-text;
+        text-transform: lowercase;
+        font-size: $font-size-h6;
+
+        #{$_link-hover} {
+            color: $color-danger-md;
+        }
+    }
+
+    .navbar-nav {
+        .active > .nav-link,
+        .nav-link.active,
+        .nav-link.show,
+        .show > .nav-link {
+            cursor: default;
+
+            &:after {
+                height: 3px;
+                transition: all 0.3s;
+                @include before-after01;
+                @include position(absolute, null 0 0);
+                @include margin(null auto);
+            }
+        }
+    }
+
+    .btn-menu {
+        @include position(absolute, 0 null 0 ($space-base * -.75));
+
+        .icon-menu span {
+            background: white;
+        }
+
+        #{$_link-hover} {
+            color: $color-danger-md;
+
+            .icon-menu span {
+                background: $color-danger-md;
+            }
+        }
+    }
+
+    @media (max-width: $screen-sm-max) {
+        .navbar-brand {
+            @include margin(null 0 null null);
+        }
+    }
+
+    @media (min-width: $screen-sm-min) {
+        .social {
+            .nav-link {
+                $font-size-small-perc: 95%;
+                font-size: $font-size-small-perc;
+            }
+        }
+    }
+
+    @media (min-width: $screen-md-min) {
+        .navbar-brand {
+            @include margin(null null null 0);
+        }
+    }
+
+    @media (min-width: $screen-lg-min) {
+        .navbar-brand {
+            $brand-w: 227px;
+
+            > img {
+                width: $brand-w;
+            }
+
+            .navbar-text {
+                font-size: $font-size-base * .95;
+                @include margin(null null null ($brand-w / 1.75));
+            }
+        }
+        .navbar-nav .nav-link {
+            @include padding(null $space-xs);
+        }
+
+    }
+}
+
+.front .btn-menu-wrapper,
+.btn-menu-wrapper.menu-home  {
+    .navbar-brand {
+        display: none;
+    }
+
+    &.menu-fixed {
+        &.fixed-top {
+            .navbar-brand {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+.menu-modal-open {
+    .btn-menu-wrapper {
+        z-index: 1051;
+    }
+}
+
+
+
+
+/* FOOTER
+ * -------------------------- */
+
+.footer {
+    text-align: center;
+
+    &-social {
+        @include padding(($space-sm * 2.5) null);
+        .nav-link {
+            font-size: $font-size-h3;
+
+            .icon-wrapper {
+                border-width: 4px;
+            }
+        }
+    }
+
+    &-sexyhot {
+        border-top: 1px solid $color-danger-dk;
+        text-transform: uppercase;
+        font-size: $font-size-smaller;
+        @include padding($space-xxs null);
+
+        .nav-link {
+            color: $color-danger-dk;
+
+            #{$_link-hover} {
+                color: $color-text;
+            }
+        }
+    }
+}
+
+
+/* SECTIONS
+ * -------------------------- */
+
+
+/* MODAL DE ENTRADA */
+
+.modal-disclaimer {
+    ol {
+        @include padding(null null null ($space-base * 1.5));
+    }
+
+    .modal-body {
+        p.big {
+            font-size: $font-size-h5;
+        }
+        @media (min-width: $screen-md-min) {
+            p.big {
+                font-size: $font-size-h3;
+            }
+            // font-size: $font-size-small-perc;
+        }
+    }
+}
+
+#btn-disclaimer-accept {
+    line-height: $line-height-heading;
+    @include padding(.527rem null);
+    .small {
+        display: block;
+        font-size: $font-size-smaller;
+        font-weight: $font-regular;
+        text-transform: none;
+    }
+}
+
+/* WEBDOOR */
+
+.section-header-webdoor {
+    .webdoor-item {
+        font-size: $font-size-h5;
+        line-height: $line-height-heading;
+        min-height: 33.3rem;
+        background: {
+            color: black;
+        }
+        text-align: center;
+        @include padding(($space-base * 2) null);
+    }
+
+    .webdoor-img {
+        background: {
+            position: center;
+            repeat: no-repeat;
+            size: cover;
+        }
+        @include position(absolute, 0);
+    }
+
+    .img-audicao {
+        background: {
+            image: url('/sites/all/themes/site/assets/images/webdoor/img-webdoor02-sm.jpg');
+            image: url('../images/webdoor/img-webdoor02-sm.jpg');
+        }
+    }
+
+    .img-olfato {
+        background: {
+            image: url('/sites/all/themes/site/assets../images/webdoor/img-webdoor03.jpg');
+            image: url('../images/webdoor/img-webdoor03.jpg');
+            size: auto;
+            position-y: top;
+        }
+    }
+
+    .img-paladar {
+        background: {
+            image: url('/sites/all/themes/site/assets/images/webdoor/img-webdoor01.jpg');
+            image: url('../images/webdoor/img-webdoor01.jpg');
+            position: right bottom;
+        }
+    }
+
+    .img-tato {
+        background: {
+            image: url('/sites/all/themes/site/assets/images/webdoor/img-webdoor04.jpg');
+            image: url('../images/webdoor/img-webdoor04.jpg');
+            position-x: left;
+        }
+    }
+
+    .img-visao {
+        background: {
+            image: url('/sites/all/themes/site/assets/images/webdoor/img-webdoor05.jpg');
+            image: url('../images/webdoor/img-webdoor05.jpg');
+            position: right bottom;
+        }
+    }
+
+    .webdoor-title {
+        font-style: normal;
+        text-shadow: 1px 1px 0px black;
+    }
+
+    .webdoor-aside {
+        color: $color-secondary-lt;
+        text-shadow: 1px 1px 0px black;
+    }
+
+
+    .webdoor-navbar {
+        border-top: 1px solid $color-secondary-dk;
+
+        .nav-link {
+            color: $color-secondary-dk;
+            text-transform: uppercase;
+            font-size: $font-size-small-perc;
+            font-weight: $font-bold;
+            border-top: 4px solid transparent;
+            @include margin(-1px null null);
+
+            #{$_link-hover},
+            #{$_btn-active} {
+                color: $color-success-md;
+                border-color: $color-danger-md;
+            }
+        }
+    }
+
+    @media (max-width: $screen-xs-max) {
+        .webdoor-navbar {
+            @include padding(null $space-md);
+
+            .nav {
+                @include prefixer(flex-wrap, nowrap, 'ms');
+            }
+            .nav-link {
+                text-align: center;
+                -ms-flex-negative: 0;
+                @include prefixer(flex-shrink, 0, 'webkit');
+            }
+            .swiper-button-next, .swiper-button-prev {
+                transform: scale(.75);
+            }
+        }
+
+    }
+
+    @media (min-width: $screen-md-min) {
+        .webdoor-img {
+            background: {
+                // size: auto;
+            }
+        }
+
+        .img-audicao {
+            background: {
+                image: url('../images/webdoor/img-webdoor02.jpg');
+            }
+        }
+        .img-visao {
+            background: {
+                size: contain;
+            }
+        }
+
+
+
+        .webdoor-aside {
+            .small {
+                font-size: $font-size-small;
+            }
+        }
+    }
+
+    @media (min-width: $screen-lg-min) {
+        .img-audicao,
+        .img-paladar {
+            background-size: auto;
+        }
+
+        .img-paladar {
+            background: {
+                position: left top;
+            }
+        }
+
+        .img-tato {
+            background: {
+                position-x: right;
+            }
+        }
+
+    }
+
+    @media (min-width: $screen-xl-min) {
+        .webdoor-title {
+            font-size: $space-base * 5.87;
+        }
+
+        .webdoor-aside {
+            .display-2 {
+                font-size: $space-base * 4.0;
+            }
+        }
+    }
+}
+
+/* FAQ */
+
+ol.faq-accordion {
+    list-style: none;
+    @include padding(null null null 0);
+}
+
+
+.faq-accordion {
+    .card {
+        background-color: transparent;
+        transition: all 0.3s;
+        border-bottom: 1px solid;
+        border-radius: 0;
+        @include margin(null null $space-xs);
+        @include border-color(transparent transparent rgba(white, .35) transparent);
+    }
+
+    &.accordion .card:first-of-type,
+    &.accordion>.card:not(:first-of-type):not(:last-of-type) {
+        border-bottom: 1px solid rgba(white, .35);
+    }
+
+    .card-header,
+    .card-body {
+        transition: all 0.3s;
+        @include padding(null $space-md null null);
+    }
+
+    .card-header {
+        background-color: transparent;
+        border-color: transparent;
+        font-size: $font-size-h5;
+        font-weight: $font-regular;
+        font-style: italic;
+        line-height: $line-height-heading;
+        @include position(relative, null);
+        @include padding(null null ($space-base * 1));
+
+        [class*="fa-"] {
+            font-size: $font-size-h3;
+            @include margin(auto);
+            @include position(absolute, 0 $space-xs 0 null);
+        }
+    }
+
+    a.card-header {
+        @extend %no-text-underline;
+        color: white;
+        #{$_link-hover} {
+            text-decoration: none;
+            color: rgba(black, .75);
+        }
+    }
+
+    .card-body {
+        opacity: 0;
+        @include padding(0 null ($space-base * 1.75));
+    }
+
+    .show {
+        .card-body {
+            opacity: 1;
+        }
+    }
+}

@@ -1,0 +1,197 @@
+// ========================================================================== //
+//	VARIAVEIS
+// ========================================================================== //
+
+// bourbon config
+$bourbon: (
+	"modular-scale-base": 1rem,
+	"modular-scale-ratio": $minor-third,
+);
+
+
+//* MEDIA QUERIES BREAKPOINTS *//
+// Define os breakpoints que mudam o layout, adaptando a diversos tamanhos de
+// de tela.
+// Extra small screen / phone
+// Small screen / phone
+// Medium screen / tablet
+// Large screen / desktop
+// Extra Large screen / wide desktop
+
+// Valores de base
+$screen-sm:             576px;
+$screen-md:             768px;
+$screen-lg:             992px;
+$screen-xl:             1200px;
+
+// Valores minimos
+$screen-sm-min:         $screen-sm;
+$screen-md-min:			$screen-md;
+$screen-lg-min:         $screen-lg;
+$screen-xl-min:         $screen-xl;
+
+// Valores maximos
+// Media queries nao sobrepoem quando requeridas, colocar um maximo
+//$screen-md-max:         ($screen-lg-min - .1); // 
+$screen-xs-max:         ($screen-sm-min - 1px); // 
+$screen-sm-max:         ($screen-md-min - 1px); // 
+$screen-md-max:         ($screen-lg-min - 1px); //
+$screen-lg-max:         ($screen-xl-min - 1px); // 
+
+
+//* MEDIDA PADRAO *//
+$space-base: 	1rem;				// 16px || 18px
+
+$space-xxs: 	$space-base / 2;			
+$space-xs: 		$space-base; 		
+$space-sm: 		$space-xs * 2;		
+$space-md: 		$space-xs * 3;		
+$space-lg: 		$space-xs * 4; 		
+
+
+//* TIPOGRAFIA *//
+
+$line-height-base:		modular-scale(1, 1, $perfect-fifth);	// padrao da altura da linha
+$line-height-heading:	modular-scale(1, 1);	// altura da linha para titulos
+$line-height-small:		modular-scale(-1, 1);			// altura da linha menor
+$line-height-big:		modular-scale(3, 1);	// altura da linha maior
+
+// peso
+$font-lighter: 			200; 	// fonte mais fina 
+$font-light: 			300; 	// fonte fina 
+$font-regular: 			400;	// fonte normal
+$font-medium: 			500;	// fonte media
+$font-semibold: 		600;	// fonte um pouco grossa
+$font-bold: 			700;	// fonte grossa
+$font-bolder: 			800;	// fonte mais grossa
+$font-black: 			900;	// fonte super grossa
+
+// font
+$font-family-base:		"Panton", sans-serif; 		// fonte padrao (pode ser a Ubuntu)
+$font-family-heading:	$font-family-base;		// para titulos
+$font-family-highlight:	$font-family-base; 			// destaque
+
+//* TAMANHO DE FONTES *//
+$font-size-base: 		1rem;
+$font-size-big: 		modular-scale(1);
+$font-size-bigger: 		modular-scale(2);
+$font-size-big-perc: 	115%;
+$font-size-small:		modular-scale(-1);
+$font-size-smaller:		modular-scale(-2);
+$font-size-small-perc:	85%;
+
+// tamanho default
+$font-size-h1: 	modular-scale(6, $font-size-base, $major-second);
+$font-size-h2: 	modular-scale(5, $font-size-base, $major-second);
+$font-size-h3: 	modular-scale(4, $font-size-base, $major-second); 
+$font-size-h4: 	modular-scale(3, $font-size-base, $major-second); 
+$font-size-h5: 	modular-scale(2, $font-size-base, $major-second);
+$font-size-h6: 	modular-scale(1, $font-size-base, $major-second);
+
+
+//* CORES *//
+
+$pink:			#fa2a5f; //f93161;
+$cherry:		#db2c5a;
+$magenta:		#a64695; //#a74796;
+$orchid:		#6d326b; //#6e336c;
+$apple:			#b0c61e; //#afc636;
+$green:			#7ebd42; //#7dbc34
+$orange:		#f49810; //#ee8722;
+$carrot:		#ee6739; //#ef6838;
+$cyan:			#8cffff; //#4cc3c8;
+$gull-gray:		#9eacb4;
+
+$color-fb:		scale-color(#3b5998, $lightness: 25%);
+$color-ig:		#e1306c;
+$color-tw:		#1da1f2;
+$color-yt:		#ff0000;
+
+$gray:					gray; 
+$gray-lt:            	scale-color($gray, $lightness: 50%);  
+$gray-ltr:          	scale-color($gray, $lightness: 87%);
+$gray-dk:				scale-color($gray, $lightness: -50%);
+$gray-dkr:				scale-color($gray, $lightness: -80%);
+
+$color-text:			white;
+$color-body:			black;
+
+//cor primaria
+$color-primary:			mix($magenta, $orchid, 50%);
+$color-primary-lt:   	scale-color($color-primary, $lightness: 40%);
+$color-primary-md:  	scale-color($color-primary, $lightness: 20%);
+$color-primary-dk: 		$color-primary;
+
+@debug "cor primaria lt		#{$color-primary-lt}";
+@debug "cor primaria 	 	#{$color-primary-md}"; 
+@debug "cor primaria dk (base) 	#{$color-primary-dk}";
+
+//cor secondaria
+$color-secondary: 		$gull-gray;
+$color-secondary-ltr:   scale-color($color-secondary, $lightness: 65%);
+$color-secondary-lt:   	$color-secondary;
+$color-secondary-md: 	scale-color($color-secondary, $lightness: -27%);
+$color-secondary-dk:  	scale-color($color-secondary, $lightness: -65%);
+// $color-secondary-dkr:  	scale-color($color-secondary, $lightness: -60%);
+
+@debug "cor secondaria ltr 	#{$color-secondary-ltr}";
+@debug "cor secondaria lt (base) 	#{$color-secondary-lt}";
+@debug "cor secondaria 		#{$color-secondary-md}"; 
+@debug "cor secondaria dk 		#{$color-secondary-dk}";
+// @debug "cor secondaria dkr 	#{$color-secondary-dkr}";
+
+//cor warning
+$color-warning: 		mix($orange, $carrot, 50%);
+$color-warning-lt:   	scale-color($color-warning, $lightness: 25%);
+$color-warning-md:   	$color-warning;
+$color-warning-dk:  	scale-color($color-warning, $lightness: -25%);
+
+@debug "cor warning lt		#{$color-warning-lt}";
+@debug "cor warning (base) 	#{$color-warning-md}"; 
+@debug "cor warning dk 		#{$color-warning-dk}";
+
+//cor danger
+$color-danger:			mix($pink, $cherry, 50%);
+$color-danger-lt:   	scale-color($color-danger, $lightness: 27%);
+$color-danger-md:  		$color-danger;
+$color-danger-dk: 		scale-color($color-danger, $lightness: -22%);
+
+@debug "cor danger lt 		#{$color-danger-lt}";
+@debug "cor danger (base) 		#{$color-danger-md}"; 
+@debug "cor danger dk		#{$color-danger-dk}";
+
+//cor success
+$color-success:			mix($apple, $green, 50%);
+$color-success-lt:   	scale-color($color-success, $lightness: 27%);
+$color-success-md:  	$color-success;
+$color-success-dk: 		scale-color($color-success, $lightness: -19%);
+
+@debug "cor success lt 		#{$color-success-lt}";
+@debug "cor success (base) 	#{$color-success-md}"; 
+@debug "cor success dk		#{$color-success-dk}";
+
+//cor info
+$color-info: 		$cyan;
+$color-info-lt:   	$color-info;
+$color-info-md: 		scale-color($color-info, $lightness: -45%);
+$color-info-dk:  	scale-color($color-info, $lightness: -55%);
+
+@debug "cor info lt 		#{$color-info-lt}";
+@debug "cor info (base) 		#{$color-info-md}"; 
+@debug "cor info dk		#{$color-info-dk}";
+
+
+
+// others
+$_link: '&:link, &:visited, &:active'; // link
+$_link-hover: '&:focus, &:hover';		// link hover
+$_btn-active: '&:active, &.active';		// btn hover
+$_btn-active-hover: '&:active:hover, &.active:hover';		// btn hover
+$_btn-fullstate: '#{$_link-hover}, &.focus, #{$_btn-active}, #{$_btn-active-hover}, &:not(:disabled):not(.disabled).active, &:not(:disabled):not(.disabled):active';
+
+
+// audicao: #9eacb4 #db2c5a;
+// olfato: #ee6739 #6d326b;
+// paladar: #fa2a5f #7dbc34;
+// tato: #b0c61e #a64695;
+// visao: #f49810 #8cffff;
