@@ -11,6 +11,7 @@ $base = "";
 $pages = array(
     'Home' => 'pages/Home.php',
     'Inscricao' => 'pages/Inscricao.php',
+    'Votacao' => 'pages/Votacao.php',
     'Edicoes' => 'pages/Edicoes.php'
 );
 

@@ -19,8 +19,8 @@
 
             <div class="collapse navbar-collapse mb-lg-2" id="menu_collapse">
                 <ul class="navbar-nav align-items-center ml-auto">
-                    <li class="nav-item"><a href="index.php?page=Inscricao" class="nav-link">Inscrição</a></li>
-                    <li class="nav-item"><a href="/regulamento.pdf" class="nav-link" target="_blank">Regulamento</a></li>
+                    <li class="nav-item"><a href="index.php?page=Inscricao" class="nav-link">Votação</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link" target="_blank">Jurados</a></li>
                     <li class="nav-item"><a href="index.php?page=Edicoes" class="nav-link">Edições</a></li>
                 </ul>
 

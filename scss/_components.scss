@@ -528,7 +528,7 @@ $senses-circles: (
 
     &:not(.overlay-gradient) {
         .overlay-body {
-            background-color: rgba($color-primary-dk, .5);
+            background-color: rgba(black, .5);
         }
     }
 
@@ -583,25 +583,43 @@ $senses-circles: (
 
 
 .i-category-wrapper {
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: -ms-flexbox;
-    display: flex;
-    @include margin(null auto $space-xs);
-    @include size(7.3rem);
-    // @include position(relative, null);
+    $icon-width: 3.75rem;
+    $icon-size: 7.3rem;
 
-    &[class*='border-'] {
-        &:before {
-            transform: scale(1);
+    &, &-sm {
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        display: -ms-flexbox;
+        display: flex;
+        @include margin(null auto $space-xs);
+
+
+        &[class*='border-'] {
+            &:before {
+                z-index: 0;
+                transform: scale(1);
+            }
         }
     }
 
-    > img {
-        width: 3.75rem;
+    & {
+        @include size($icon-size);
+
+        > img {
+            width: $icon-width;
+        }
     }
+
+    &-sm {
+        @include size($icon-size / 2);
+
+        > img {
+            width: $icon-width / 2;
+        }
+    }
+
 }
 
 

@@ -1,9 +1,10 @@
 $( document ).ready( function() {
-	$('#disclaimer-modal').modal({
-        backdrop: 'static',
-        keyboard: false,
-        show: true
-    });
+	// NÃO APAGAR - COMENTADO APENAS FACILITAR O TRABALHO
+	// $('#disclaimer-modal').modal({
+ //        backdrop: 'static',
+ //        keyboard: false,
+ //        show: true
+ //    });
 
     $('#termos-uso-check').change(function() {
     	if($('#termos-uso-check:checked').length == 1) {
