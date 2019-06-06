@@ -347,14 +347,17 @@ h6, .h6 {
   .figure.float-right {
     margin-left: 2rem; }
 
+.icon-wrapper, .icon-wrapper-lg {
+  border: 2px solid;
+  border-radius: 4rem; }
+.icon-wrapper-lg {
+  border-width: 4px; }
+
 .social {
   font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif; }
   .social .nav-link {
     padding-right: 0.25rem;
     padding-left: 0.25rem; }
-    .social .nav-link .icon-wrapper {
-      border: 2px solid;
-      border-radius: 4rem; }
     .social .nav-link .svg-inline--fa.fa-fw {
       width: 1.462em; }
 
@@ -471,8 +474,7 @@ h6, .h6 {
 /* OVERLAY
  * -------------------------- */
 .overlay {
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   min-width: 0;
   word-wrap: break-word;
   color: white;
@@ -518,8 +520,6 @@ h6, .h6 {
 .overlay-hover:focus .overlay-body, .overlay-hover:hover .overlay-body {
   opacity: 1; }
 
-.overlay img.overlay-img {
-  width: 100%; }
 .overlay-body {
   padding: 1rem; }
 .overlay:not(.overlay-gradient) .overlay-body {
@@ -528,6 +528,41 @@ h6, .h6 {
   top: auto; }
 .overlay-top {
   bottom: auto; }
+.overlay-hover {
+  overflow: hidden; }
+  .overlay-hover .overlay-img {
+    transition: all .3s; }
+  .overlay-hover:focus .overlay-img, .overlay-hover:hover .overlay-img {
+    transform: scale(1.1); }
+
+.i-category-wrapper, .i-category-wrapper-sm {
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -ms-flexbox;
+  display: flex; }
+  .i-category-wrapper[class*='border-']:before, .i-category-wrapper-sm[class*='border-']:before {
+    z-index: 0;
+    transform: scale(1); }
+.i-category-wrapper {
+  height: 7.3rem;
+  width: 7.3rem;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  margin-left: auto; }
+  .i-category-wrapper > img {
+    width: 3.75rem; }
+.i-category-wrapper-sm {
+  height: 3.65rem;
+  width: 3.65rem; }
+  .i-category-wrapper-sm > img {
+    width: 1.875rem; }
+
+.category-list .title,
+.category-header .title {
+  font-size: 1.265625rem;
+  line-height: 1.2; }
 
 .category-list [class*="col"] {
   margin-right: auto;
@@ -536,33 +571,6 @@ h6, .h6 {
   .category-list [class*="col"]:focus .i-category-wrapper:before, .category-list [class*="col"]:hover .i-category-wrapper:before {
     -webkit-animation: ef_vibrate 0.2s linear infinite both;
     animation: ef_vibrate 0.2s linear infinite both; }
-.category-list .title {
-  font-size: 1.265625rem;
-  line-height: 1.2; }
-
-.i-category-wrapper, .i-category-wrapper-sm {
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: auto;
-  margin-bottom: 1rem;
-  margin-left: auto; }
-  .i-category-wrapper[class*='border-']:before, .i-category-wrapper-sm[class*='border-']:before {
-    z-index: 0;
-    transform: scale(1); }
-.i-category-wrapper {
-  height: 7.3rem;
-  width: 7.3rem; }
-  .i-category-wrapper > img {
-    width: 3.75rem; }
-.i-category-wrapper-sm {
-  height: 3.65rem;
-  width: 3.65rem; }
-  .i-category-wrapper-sm > img {
-    width: 1.875rem; }
 
 /* TIMELINE
  * -------------------------- */
@@ -616,6 +624,35 @@ h6, .h6 {
       margin: auto; }
     .timeline-title, .timeline-content p {
       background-color: transparent; } }
+
+.voting-options .fa-play {
+  width: 1.462em; }
+.voting-options .icon-wrapper-lg {
+  padding: 0.48em 0.25em; }
+.voting-options .video-title {
+  line-height: 1.2; }
+  .voting-options .video-title .text-muted {
+    color: #9eacb4 !important; }
+.voting-options a.disabled,
+.voting-options a.active {
+  pointer-events: none; }
+  .voting-options a.disabled .overlay-body,
+  .voting-options a.active .overlay-body {
+    padding-right: 0;
+    padding-left: 0; }
+  .voting-options a.disabled .band,
+  .voting-options a.active .band {
+    width: 100%;
+    text-align: center;
+    text-transform: lowercase;
+    text-shadow: none;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem; }
+.voting-options .disabled .overlay-img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%); }
+.voting-options .active .overlay-body {
+  background-color: transparent; }
 
 /* ==========================================================================
    ESTRUTURA DO LAYOUT
@@ -709,7 +746,8 @@ h6, .h6 {
 /* FOOTER
  * -------------------------- */
 .footer {
-  text-align: center; }
+  text-align: center;
+  border-top: 1px solid #eb2b5d; }
   .footer-social {
     padding-top: 5rem;
     padding-bottom: 5rem; }

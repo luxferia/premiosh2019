@@ -273,16 +273,21 @@ $senses-circles: (
     }
 }
 
+.icon-wrapper {
+    &, &-lg {
+        border: 2px solid;
+        border-radius: $space-lg;
+    }
+    &-lg {
+        border-width: 4px;
+    }
+}
+
 .social {
     font-family: $font-stack-system;
     .nav-link {
         // font-size: $font-size-small-perc;
         @include padding(null ($space-base * .25));
-
-        .icon-wrapper {
-            border: 2px solid;
-            border-radius: $space-lg;
-        }
 
         .svg-inline--fa.fa-fw {
             width: 1.462em;
@@ -290,6 +295,8 @@ $senses-circles: (
         }
     }
 }
+
+
 
 
 /* MENU BUTTON
@@ -459,10 +466,11 @@ $senses-circles: (
  * -------------------------- */
 
 %overlay {
-    display: -ms-flexbox;
-    display: flex;
+    // display: -ms-flexbox;
+    // display: flex;
     // -ms-flex-direction: column;
     // flex-direction: column;
+    display: block;
     min-width: 0;
     word-wrap: break-word;
     color: white;
@@ -517,9 +525,9 @@ $senses-circles: (
         @extend %overlay-img;
     }
 
-    img.overlay-img {
-        width: 100%;
-    }
+    // img.overlay-img {
+    //     width: 100%;
+    // }
 
     &-body {
         @extend %overlay-body;
@@ -545,6 +553,11 @@ $senses-circles: (
     }
 
     &-hover {
+        overflow: hidden;
+
+        .overlay-img {
+            transition: all .3s;
+        }
         .overlay-body {
             @extend %overlay-hover;
         }
@@ -552,32 +565,13 @@ $senses-circles: (
         #{$_link-hover} {
             @extend %overlay-hover-before;
 
+            .overlay-img {
+                transform: scale(1.1);
+            }
             .overlay-body {
                 @extend %overlay-opacity-100;
             }
         }
-    }
-}
-
-
-
-.category-list {
-    [class*="col"] {
-        @include margin(null auto $space-sm);
-
-        #{$_link-hover} {
-            .i-category-wrapper {
-                &:before {
-                    -webkit-animation: ef_vibrate 0.2s linear infinite both;
-                    animation: ef_vibrate 0.2s linear infinite both;
-                }
-            }
-        }
-        
-    }
-    .title {
-        font-size: $font-size-h5;
-        line-height: $line-height-heading;
     }
 }
 
@@ -593,7 +587,6 @@ $senses-circles: (
         justify-content: center;
         display: -ms-flexbox;
         display: flex;
-        @include margin(null auto $space-xs);
 
 
         &[class*='border-'] {
@@ -606,6 +599,7 @@ $senses-circles: (
 
     & {
         @include size($icon-size);
+        @include margin(null auto $space-xs);
 
         > img {
             width: $icon-width;
@@ -619,8 +613,32 @@ $senses-circles: (
             width: $icon-width / 2;
         }
     }
-
 }
+
+.category-list,
+.category-header {
+    .title {
+        font-size: $font-size-h5;
+        line-height: $line-height-heading;
+    }
+}
+
+.category-list {
+    [class*="col"] {
+        @include margin(null auto $space-sm);
+
+        #{$_link-hover} {
+            .i-category-wrapper {
+                &:before {
+                    -webkit-animation: ef_vibrate 0.2s linear infinite both;
+                    animation: ef_vibrate 0.2s linear infinite both;
+                }
+            }
+        }
+    }
+}
+  
+
 
 
 /* TIMELINE
@@ -692,6 +710,53 @@ $senses-circles: (
         }
 
         &-title, &-content p {
+            background-color: transparent;
+        }
+    }
+}
+
+.voting-options {
+    .fa-play {
+        width: 1.462em;
+    }
+
+    .icon-wrapper-lg {
+        @include padding(.48em .25em);
+    }
+
+    .video-title {
+        line-height: $line-height-heading;
+
+        .text-muted {
+            color: $color-secondary-lt !important;
+        }
+    }
+
+    a.disabled,
+    a.active {
+        pointer-events: none;
+
+        .overlay-body {
+            @include padding(null 0);
+        }
+
+        .band {
+            width: 100%;
+            text-align: center;
+            text-transform: lowercase;
+            text-shadow: none;
+            @include padding(null $space-xxs);
+        }
+    }
+
+    .disabled {
+        .overlay-img {
+            @include prefixer(filter, grayscale(100%), ('webkit'));
+        }
+    }
+
+    .active {
+        .overlay-body {
             background-color: transparent;
         }
     }

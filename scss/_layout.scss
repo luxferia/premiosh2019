@@ -149,6 +149,7 @@
 
 .footer {
     text-align: center;
+    border-top: 1px solid $color-danger-md;
 
     &-social {
         @include padding(($space-sm * 2.5) null);
