@@ -126,6 +126,19 @@ $max: 4;
     font-style: italic;
 }
 
+.tooltip {
+    font-size: $font-size-small-perc;
+    // line-height: $line-height-heading;
+
+    // &-inner {
+    //     @include padding(.35rem null);
+    // }
+}
+
+// .card {
+//     border-radius: 0;
+// }
+
 
 /* ALERT
  * -------------------------- */
@@ -152,12 +165,12 @@ $max: 4;
 .btn {
     cursor: pointer;
     transition: all .3s;
-    font-weight: $font-bold;
     border-radius: 0;
     @include padding(.778rem $space-sm);
 
     &:not(.btn-link) {
         text-transform: uppercase;
+        font-weight: $font-bold;
     }
 
     &-sm {
@@ -167,10 +180,12 @@ $max: 4;
     &-link {
         text-transform: none;
         color: $color-danger-md;
-        @include padding(.584rem null);
+        // font-weight: $font-regular;
+        // @include padding(.584rem null);
 
         #{$_link-hover} {
-            color: $color-danger-lt;
+            text-transform: underline;
+            color: white;
         }
     }
 }
@@ -178,11 +193,20 @@ $max: 4;
 .btn-primary {
     @include btn-style-full($color-primary-md, white, $bg-color-hover: 'dk');
 }
+.btn-outline-primary {
+    @include btn-style-full($color-primary-md, $color-primary-md, null, 'dk', white);
+}
 .btn-danger {
     @include btn-style-full($color-danger-md, white, $bg-color-hover: 'dk');
 }
+.btn-outline-danger {
+    @include btn-style-full($color-danger-md, $color-danger-md, null, 'dk', white);
+}
 .btn-warning {
     @include btn-style-full($color-warning-md, white, $bg-color-hover: 'dk');
+}
+.btn-outline-warning {
+    @include btn-style-full($color-warning-md, $color-warning-md, null, 'dk', white);
 }
 .btn-success {
     @include btn-style-full($color-success-dk, white, $bg-color-hover: 'dk');
@@ -243,17 +267,18 @@ $field-h: 2.945rem;
 .custom-control {
     // @include padding(null null null 2rem);
 
-    // &-label {
+    &-label {
+        cursor: pointer;
     //     &:before, &:after {
     //         @include size($space-base * 1.25);
     //         @include position(null, .1rem null null -2rem);
     //     }
 
-    //     &:before {
-    //         background-color: transparent;
-    //         border: $field-bdw solid white;
-    //     }
-    // }
+        &:before {
+            background-color: $color-body;
+            border: $field-bdw solid $color-warning;
+        }
+    }
 
     &-input:checked~.custom-control-label::before {
         border-color: $color-primary-md;
@@ -427,12 +452,18 @@ $theme-colors: (
 
 @each $name, $color in $theme-colors {
     .bg-#{$name} {
-        background-color: $color !important;
+        &:not(.toast) {
+            background-color: $color !important;
+        }
 
         @if $name != 'body' and  $name != 'muted' {
             a:not(.btn) {
                 @extend %link-dark;
             }
+        }
+
+        &.toast {
+            background-color: rgba($color, .85) !important;
         }
     }
 }
@@ -456,6 +487,7 @@ $brands-colors: (
     'twitter':      $color-tw,
     'instagram':    $color-ig,
     'youtube':      $color-yt,
+    'whatsapp':     $color-wp,
 );
 
 @each $name, $color in $brands-colors {

@@ -520,6 +520,8 @@ h6, .h6 {
 .overlay-hover:focus .overlay-body, .overlay-hover:hover .overlay-body {
   opacity: 1; }
 
+.overlay img.overlay-img {
+  width: 100%; }
 .overlay-body {
   padding: 1rem; }
 .overlay:not(.overlay-gradient) .overlay-body {
@@ -633,26 +635,43 @@ h6, .h6 {
   line-height: 1.2; }
   .voting-options .video-title .text-muted {
     color: #9eacb4 !important; }
-.voting-options a.disabled,
-.voting-options a.active {
+.voting-options a.disabled {
   pointer-events: none; }
-  .voting-options a.disabled .overlay-body,
-  .voting-options a.active .overlay-body {
-    padding-right: 0;
-    padding-left: 0; }
-  .voting-options a.disabled .band,
-  .voting-options a.active .band {
-    width: 100%;
-    text-align: center;
-    text-transform: lowercase;
-    text-shadow: none;
-    padding-right: 0.5rem;
-    padding-left: 0.5rem; }
+.voting-options .disabled .overlay-body,
+.voting-options .active .overlay-body {
+  padding-right: 0;
+  padding-left: 0; }
+.voting-options .disabled .band,
+.voting-options .active .band {
+  width: 100%;
+  text-align: center;
+  text-transform: lowercase;
+  text-shadow: none;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem; }
 .voting-options .disabled .overlay-img {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%); }
+.voting-options .disabled .overlay-body {
+  background-color: rgba(0, 0, 0, 0.35); }
 .voting-options .active .overlay-body {
   background-color: transparent; }
+
+.voting-toast {
+  text-align: center;
+  z-index: 1;
+  margin-right: auto;
+  margin-left: auto;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem; }
+
+.card-coupon {
+  border: 2px dashed;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 0; }
 
 /* ==========================================================================
    ESTRUTURA DO LAYOUT
@@ -751,10 +770,6 @@ h6, .h6 {
   .footer-social {
     padding-top: 5rem;
     padding-bottom: 5rem; }
-    .footer-social .nav-link {
-      font-size: 1.6018066406rem; }
-      .footer-social .nav-link .icon-wrapper {
-        border-width: 4px; }
   .footer-sexyhot {
     border-top: 1px solid #c61341;
     text-transform: uppercase;
@@ -765,6 +780,13 @@ h6, .h6 {
       color: #c61341; }
       .footer-sexyhot .nav-link:focus, .footer-sexyhot .nav-link:hover {
         color: white; }
+
+.vote-confirm-share .nav-link,
+.footer-social .nav-link {
+  font-size: 1.6018066406rem; }
+  .vote-confirm-share .nav-link .icon-wrapper,
+  .footer-social .nav-link .icon-wrapper {
+    border-width: 4px; }
 
 /* SECTIONS
  * -------------------------- */
@@ -1866,6 +1888,9 @@ ol.faq-accordion {
   line-height: 1;
   font-style: italic; }
 
+.tooltip {
+  font-size: 85%; }
+
 /* ALERT
  * -------------------------- */
 .alert {
@@ -1878,26 +1903,33 @@ ol.faq-accordion {
 .btn {
   cursor: pointer;
   transition: all .3s;
-  font-weight: 700;
   border-radius: 0;
   padding: 0.778rem 2rem; }
   .btn:not(.btn-link) {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-weight: 700; }
   .btn-sm {
     padding: 0.518rem 1rem; }
   .btn-link {
     text-transform: none;
-    color: #eb2b5d;
-    padding-top: 0.584rem;
-    padding-bottom: 0.584rem; }
+    color: #eb2b5d; }
     .btn-link:focus, .btn-link:hover {
-      color: #f06489; }
+      text-transform: underline;
+      color: white; }
 
 .btn-primary {
   border-color: #b351a7;
   color: white;
   background-color: #b351a7; }
   .btn-primary:focus, .btn-primary:hover, .btn-primary.focus, .btn-primary:active, .btn-primary.active, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active {
+    border-color: #84397a;
+    color: white;
+    background-color: #84397a; }
+
+.btn-outline-primary {
+  border-color: #b351a7;
+  color: #b351a7; }
+  .btn-outline-primary:focus, .btn-outline-primary:hover, .btn-outline-primary.focus, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary:active:hover, .btn-outline-primary.active:hover, .btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active {
     border-color: #84397a;
     color: white;
     background-color: #84397a; }
@@ -1911,11 +1943,27 @@ ol.faq-accordion {
     color: white;
     background-color: #bd123e; }
 
+.btn-outline-danger {
+  border-color: #eb2b5d;
+  color: #eb2b5d; }
+  .btn-outline-danger:focus, .btn-outline-danger:hover, .btn-outline-danger.focus, .btn-outline-danger:active, .btn-outline-danger.active, .btn-outline-danger:active:hover, .btn-outline-danger.active:hover, .btn-outline-danger:not(:disabled):not(.disabled).active, .btn-outline-danger:not(:disabled):not(.disabled):active {
+    border-color: #bd123e;
+    color: white;
+    background-color: #bd123e; }
+
 .btn-warning {
   border-color: #f18025;
   color: white;
   background-color: #f18025; }
   .btn-warning:focus, .btn-warning:hover, .btn-warning.focus, .btn-warning:active, .btn-warning.active, .btn-warning:active:hover, .btn-warning.active:hover, .btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active {
+    border-color: #c25e0c;
+    color: white;
+    background-color: #c25e0c; }
+
+.btn-outline-warning {
+  border-color: #f18025;
+  color: #f18025; }
+  .btn-outline-warning:focus, .btn-outline-warning:hover, .btn-outline-warning.focus, .btn-outline-warning:active, .btn-outline-warning.active, .btn-outline-warning:active:hover, .btn-outline-warning.active:hover, .btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active {
     border-color: #c25e0c;
     color: white;
     background-color: #c25e0c; }
@@ -1970,6 +2018,11 @@ ol.faq-accordion {
 .form-text:not(.form-control) {
   line-height: 1.2; }
 
+.custom-control-label {
+  cursor: pointer; }
+  .custom-control-label:before {
+    background-color: black;
+    border: 1px solid #f18025; }
 .custom-control-input:checked ~ .custom-control-label::before {
   border-color: #b351a7;
   background-color: #b351a7; }
@@ -2048,26 +2101,40 @@ label.custom-control-label {
 
 /* UTILITIES
  * -------------------------- */
-.bg-primary {
+.bg-primary:not(.toast) {
   background-color: #b351a7 !important; }
+.bg-primary.toast {
+  background-color: rgba(179, 81, 167, 0.85) !important; }
 
-.bg-danger {
+.bg-danger:not(.toast) {
   background-color: #eb2b5d !important; }
+.bg-danger.toast {
+  background-color: rgba(235, 43, 93, 0.85) !important; }
 
-.bg-warning {
+.bg-warning:not(.toast) {
   background-color: #f18025 !important; }
+.bg-warning.toast {
+  background-color: rgba(241, 128, 37, 0.85) !important; }
 
-.bg-success {
+.bg-success:not(.toast) {
   background-color: #97c230 !important; }
+.bg-success.toast {
+  background-color: rgba(151, 194, 48, 0.85) !important; }
 
-.bg-info {
+.bg-info:not(.toast) {
   background-color: #00d9d9 !important; }
+.bg-info.toast {
+  background-color: rgba(0, 217, 217, 0.85) !important; }
 
-.bg-muted {
+.bg-muted:not(.toast) {
   background-color: #6c808b !important; }
+.bg-muted.toast {
+  background-color: rgba(108, 128, 139, 0.85) !important; }
 
-.bg-body {
+.bg-body:not(.toast) {
   background-color: black !important; }
+.bg-body.toast {
+  background-color: rgba(0, 0, 0, 0.85) !important; }
 
 .text-primary {
   color: #b351a7 !important; }
@@ -2162,6 +2229,19 @@ a.text-body:focus, a.text-body:hover {
   border-color: #ff0000; }
   .social .nav-link.text-youtube:focus, .social .nav-link.text-youtube:hover {
     border-color: #ff4d4d; }
+
+.text-whatsapp,
+.social .nav-link.text-whatsapp {
+  color: #7ebd42; }
+  .text-whatsapp:focus, .text-whatsapp:hover,
+  .social .nav-link.text-whatsapp:focus,
+  .social .nav-link.text-whatsapp:hover {
+    color: #a5d17b; }
+
+.social .nav-link.text-whatsapp {
+  border-color: #7ebd42; }
+  .social .nav-link.text-whatsapp:focus, .social .nav-link.text-whatsapp:hover {
+    border-color: #a5d17b; }
 
 /* ==========================================================================
    MODIFICACOES DE PLUGINS

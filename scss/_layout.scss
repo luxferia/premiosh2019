@@ -153,15 +153,7 @@
 
     &-social {
         @include padding(($space-sm * 2.5) null);
-        .nav-link {
-            font-size: $font-size-h3;
-
-            .icon-wrapper {
-                border-width: 4px;
-            }
-        }
     }
-
     &-sexyhot {
         border-top: 1px solid $color-danger-dk;
         text-transform: uppercase;
@@ -174,6 +166,17 @@
             #{$_link-hover} {
                 color: $color-text;
             }
+        }
+    }
+}
+
+.vote-confirm-share,
+.footer-social {
+    .nav-link {
+        font-size: $font-size-h3;
+
+        .icon-wrapper {
+            border-width: 4px;
         }
     }
 }

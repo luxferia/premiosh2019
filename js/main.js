@@ -1,4 +1,6 @@
 $( document ).ready( function() {
+	$('[data-toggle="tooltip"], [data-title]').tooltip();
+
 	// NÃO APAGAR - COMENTADO APENAS FACILITAR O TRABALHO
 	// $('#disclaimer-modal').modal({
  //        backdrop: 'static',
@@ -20,6 +22,28 @@ $( document ).ready( function() {
         $('#disclaimer-modal').modal('hide');
     });
 
+
+
+    $('#voting-form input[type="radio"]').change(function() {
+    	var totalOptions = $('#voting-form input[type="radio"]:checked').length;
+
+    	$('.voting-toast').toast('show');
+    	$('.vote-info').fadeIn('slow');
+    	$('.vote-total').html(totalOptions);
+    });
+
+   	$('#coupon-card a').hover(function() {
+   		$(this).click(function(e){
+   			e.preventDefault();
+   			$(this).siblings('#coupon-code').focus().select();      
+   			document.execCommand('copy');
+   			$(this).parent().attr('data-original-title', 'Cupom copiado!').tooltip('show');
+   		});
+   	}, function() {
+   		$(this).parent().attr('data-original-title', '');
+   	});
+
+
 	var figImg = $('.figure img');
 	var figImgWidth = figImg.width();
     figImg.closest('.figure').css('max-width', figImgWidth);
@@ -32,74 +56,6 @@ $( document ).ready( function() {
 	})*/
 
 
-	// Hide Header on on scroll down
-	
-	var didScroll;
-	var lastScrollTop = 0;
-	var delta = 5;
-	var navbar = $('.menu-fixed');
-	var navbarHeight = navbar.outerHeight();
-
-	$(window).scroll(function(event){
-		didScroll = true;
-	});
-
-	setInterval(function() {
-		if (didScroll) {
-			hasScrolled();
-			didScroll = false;
-		}
-	}, 250);
-
-	function hasScrolled() {
-		var thisST = $(this).scrollTop();
-		// var screenHeight = $('.header').outerHeight();
-
-		// Make sure they scroll more than delta
-		if(Math.abs(lastScrollTop - thisST) <= delta) return;
-
-		// If they scrolled down and are past the navbar, add class .nav-hidden.
-		// This is necessary so you never see what is "behind" the navbar.
-
-		if (thisST < navbarHeight) {
-			navbar.removeClass('fixed-top nav-shown nav-hidden');
-		}
-
-		else {
-			navbar.addClass('fixed-top');
-			// if (thisST > lastScrollTop && thisST > navbarHeight) { // Scroll Down
-			// 	navbar.removeClass('nav-shown').addClass('nav-hidden fixed-top');
-			// }
-
-			// else if(thisST + delta < $(document).height()) { // Scroll Up
-			// 	navbar.removeClass('nav-hidden').addClass('nav-shown');
-			// }
-			if(thisST + delta < $(document).height()) { // Scroll Up
-				navbar.removeClass('nav-hidden').addClass('nav-shown');
-			}
-
-		}
-
-		lastScrollTop = thisST;
-	}
-
-
-	/*$('#header-navbar .nav-link, #header-navbar .navbar-brand').on('click', function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html,body').animate({
-					scrollTop: target.offset().top
-				}, 1000, function(e){
-					target.focus() ;
-				});
-				//return false;
-			}
-		}
-	});*/
-
-	
 	var webdoorNavbar = new Swiper('.section-header-webdoor .webdoor-navbar', {
 		// freeMode: true,
 		slideClass: 'nav-link',
@@ -176,18 +132,6 @@ $( document ).ready( function() {
 		jQuery(this).parent('.card').removeClass('active');
 	});
 
-	// var masks = ['(00)00000-0000', '(00)0000-00009'],
-
-	// maskBehavior = function(val, e, field, options) {
-	// 	return val.length > 13 ? masks[0] : masks[1];
-	// };
-
-	// $('.mask-telcel').mask(maskBehavior, {onKeyPress: 
-	// 	function(val, e, field, options) {
-	// 		field.mask(maskBehavior(val, e, field, options), options);
-	// 	}
-	// });
-
 	var tlGallery0 = [
 	{
 		"src": "http://lorempixel.com/600/400/abstract/4",
@@ -232,4 +176,19 @@ $( document ).ready( function() {
 			});
 		// });
 	}
+
+	lightGallery(document.getElementById('html5-videos'), {
+		thumbnail: true,
+      	selector: '.overlay'
+	}); 
+
+	// var videoGalleries = document.getElementsById('voting-form').children;
+
+	// for(let i = 0 ; i < videoGalleries.length; i++){
+	// 	lightGallery(tlGalleries[i],{
+	// 		thumbnail: 	true,
+	// 		download: 	false
+	// 	});
+	// }
+
 });

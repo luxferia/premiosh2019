@@ -12,6 +12,7 @@ $pages = array(
     'Home' => 'pages/Home.php',
     'Inscricao' => 'pages/Inscricao.php',
     'Votacao' => 'pages/Votacao.php',
+    'Votacao-Confirm' => 'pages/Votacao-Confirm.php',
     'Edicoes' => 'pages/Edicoes.php'
 );
 

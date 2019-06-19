@@ -525,9 +525,9 @@ $senses-circles: (
         @extend %overlay-img;
     }
 
-    // img.overlay-img {
-    //     width: 100%;
-    // }
+    img.overlay-img {
+        width: 100%;
+    }
 
     &-body {
         @extend %overlay-body;
@@ -732,9 +732,12 @@ $senses-circles: (
         }
     }
 
-    a.disabled,
-    a.active {
+    a.disabled {
         pointer-events: none;
+    }
+
+    .disabled,
+    .active {
 
         .overlay-body {
             @include padding(null 0);
@@ -753,6 +756,10 @@ $senses-circles: (
         .overlay-img {
             @include prefixer(filter, grayscale(100%), ('webkit'));
         }
+        
+        .overlay-body {
+            background-color: rgba(black, .35);
+        }
     }
 
     .active {
@@ -760,4 +767,20 @@ $senses-circles: (
             background-color: transparent;
         }
     }
+}
+
+.voting-toast {
+    text-align: center;
+    // max-width: 400px;
+    z-index: 1;
+    @include margin(null auto);
+    @include position(fixed, null $space-xs $space-xs $space-xs);
+}
+
+
+.card-coupon {
+    border: 2px dashed;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 0;
 }
