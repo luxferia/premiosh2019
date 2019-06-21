@@ -22,9 +22,5 @@
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
-        <!-- <script src="vendors/popper-1.11.min.js"></script>
-        <script src="vendors/bootstrap-4.3.1/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script> -->
     </body>
 </html>

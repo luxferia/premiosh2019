@@ -28,12 +28,6 @@
   src: url("../fonts/panton-bold-italic-webfont.woff2") format("woff2"), url("../fonts/panton-bold-italic-webfont.woff") format("woff");
   font-style: italic;
   font-weight: 700; }
-/***
- * $type: margin || padding
- * $gutter: tamanho do espacamento
- * $i: escala de tamanho do BS 1 - 2 - 3 - 4
- * $bp: breakpoint de classe do BS
- ***/
 .bg-primary a:not(.btn), .bg-danger a:not(.btn), .bg-warning a:not(.btn), .bg-success a:not(.btn), .bg-info a:not(.btn) {
   color: black; }
   .bg-primary a:focus:not(.btn), .bg-danger a:focus:not(.btn), .bg-warning a:focus:not(.btn), .bg-success a:focus:not(.btn), .bg-info a:focus:not(.btn), .bg-primary a:hover:not(.btn), .bg-danger a:hover:not(.btn), .bg-warning a:hover:not(.btn), .bg-success a:hover:not(.btn), .bg-info a:hover:not(.btn) {
