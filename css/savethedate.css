@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Panton";
+  src: url("../fonts/panton-regular-webfont.woff2") format("woff2"), url("../fonts/panton-regular-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: 400; }
+/* ==========================================================================
+   GLOBAL
+   ========================================================================== */
+/**
+ * Alguns componentes do Bootstrap estao sendo sobrescritos aqui, nao foi feita a 
+ * separacao.
+ **/
+@media (min-width: 768px) {
+  html {
+    font-size: 18px; } }
+@media (min-width: 992px) {
+  html {
+    font-size: 20px; } }
+body {
+  font-family: "Panton", sans-serif;
+  color: white;
+  background-color: black;
+  position: relative; }
+
+a {
+  color: #eb2b5d;
+  transition: all 0.3s; }
+  a:focus, a:hover {
+    color: white; }
+
+/* Todas as imagens estao responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: none; }
+
+input::placeholder, textarea::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+  opacity: 1;
+  /* Firefox */ }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: white !important;
+  opacity: 1; }
+input::-moz-placeholder, textarea::-moz-placeholder {
+  /* Firefox 19+ */
+  color: white !important;
+  opacity: 1; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white !important;
+  opacity: 1; }
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white !important;
+  opacity: 1; }
+input:-moz-placeholder, textarea:-moz-placeholder {
+  /* Firefox 18- */
+  color: white !important;
+  opacity: 1; }
+
+option {
+  color: black; }
+
+/* TIPOGRAFIA
+ * -------------------------- */
+b, strong {
+  font-weight: 700; }
+
+small, .small {
+  font-size: 85%; }
+
+big, .big {
+  font-size: 115%; }
+
+abbr[title], abbr[data-original-title] {
+  border-bottom: none;
+  text-decoration: none; }
+
+.mark, mark {
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: inherit; }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  text-transform: lowercase;
+  font-weight: 300;
+  line-height: 1;
+  font-style: italic; }
+
+h1, .h1 {
+  font-size: 2.0272865295rem; }
+
+h2, .h2 {
+  font-size: 1.8020324707rem; }
+
+h3, .h3 {
+  font-size: 1.6018066406rem; }
+
+h4, .h4 {
+  font-size: 1.423828125rem; }
+
+h5, .h5 {
+  font-size: 1.265625rem; }
+
+h6, .h6 {
+  font-size: 1.125rem; }
+
+.fullscreen-video {
+  min-height: 100vh; }
+  @media (min-aspect-ratio: 16 / 9) and (min-width: 768px) {
+    .fullscreen-video .embed-responsive-item {
+      height: 300%;
+      top: -100%; } }
+
+/*# sourceMappingURL=savethedate.css.map */

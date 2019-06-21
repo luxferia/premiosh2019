@@ -1,0 +1,33 @@
+//* ==========================================================================
+//*   IMPORTS
+//* ========================================================================== *//
+
+@import 'bourbon/bourbon';
+@include font-face("Panton", "../fonts/panton-regular-webfont", ("woff2", "woff")) {
+	font-style: normal;
+	font-weight: 400;
+}
+@import 'base.config';
+@import 'base.functions';
+@import 'base.global';
+
+
+
+.fullscreen-video {
+    min-height: 100vh;
+    .embed-responsive-item {
+
+    	@media (min-aspect-ratio: 16/9) and (min-width: $screen-md-min) {
+    		height: 300%;
+    		top: -100%;
+    		// @include size(100%, auto);
+    	}
+
+    	// @media (max-aspect-ratio: 16/9) {
+	    	// width: 300%;
+	    	// left: -100%;
+	    	// @include size(auto, 100%);
+    	// }
+    }
+}
+
